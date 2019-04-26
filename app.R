@@ -192,7 +192,7 @@ server <- function(input, output, session) {
       
       numfiles = nrow(inFile) 
       kata_csv1 = list()
-      #DB <- dbConnect(RSQLite::SQLite(), dbname = "C:/Users/patel/Desktop/Database/mydb2.db")
+      #DB <- dbConnect(RSQLite::SQLite(), dbname = "C:/Database/mydb2.db")
       
       for (i in 1:numfiles)
       {
@@ -203,7 +203,7 @@ server <- function(input, output, session) {
         
       }
       # browser()
-       DB <- dbConnect(RSQLite::SQLite(), dbname = "C:/Users/patel/Desktop/Database/mydb2.db")
+       DB <- dbConnect(RSQLite::SQLite(), dbname = "C:/Database/mydb2.db")
       dbWriteTable(conn = DB, name = "Samples", value = do.call(rbind, kata_csv1),row.names = FALSE, header = TRUE, overwrite = TRUE)
       #dbDisconnect(DB) 
       do.call(rbind, kata_csv1)
@@ -230,7 +230,7 @@ server <- function(input, output, session) {
       # browser()
       numfiles = nrow(inFile) 
       kata_csv2 = list()
-      #DB <- dbConnect(RSQLite::SQLite(), dbname = "C:/Users/patel/Desktop/Database/mydb2.db")
+      #DB <- dbConnect(RSQLite::SQLite(), dbname = "C:/Database/mydb2.db")
       
       for (i in 1:numfiles)
       {
@@ -241,7 +241,7 @@ server <- function(input, output, session) {
         
       }
       # browser()
-      DB <- dbConnect(RSQLite::SQLite(), dbname = "C:/Users/patel/Desktop/Database/mydb2.db")
+      DB <- dbConnect(RSQLite::SQLite(), dbname = "C:/Database/mydb2.db")
       dbWriteTable(conn = DB, name = "Results", value = do.call(rbind, kata_csv2),row.names = FALSE, header = TRUE, overwrite = TRUE)
       #dbDisconnect(DB)
       do.call(rbind, kata_csv2)
