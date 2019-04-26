@@ -33,7 +33,13 @@ ui <- shinyUI(
                                                 multiple = TRUE,
                                                 accept=c('text/csv', 
                                                          'text/comma-separated-values,text/plain', 
-                                                         '.csv'))
+                                                         '.csv')),
+                                      dateInput("date1",
+                                                label= "Select Sample submission Date ",
+                                                value = Sys.Date(),
+                                                min = Sys.Date() - 10,
+                                                max = Sys.Date() + 10),
+                                      textOutput("subdate")
                                       
                                     ),
                                     mainPanel(
@@ -51,7 +57,13 @@ ui <- shinyUI(
                                                 multiple = TRUE,
                                                 accept=c('text/csv', 
                                                          'text/comma-separated-values,text/plain', 
-                                                         '.csv'))
+                                                         '.csv')),
+                                      dateInput("date2",
+                                                label= "Select Anaysis submission Date ",
+                                                value = Sys.Date(),
+                                                min = Sys.Date() - 10,
+                                                max = Sys.Date() + 10),
+                                      textOutput("Analysisdate")
                                     ),
                                     mainPanel(
                                        #tableOutput('results')
@@ -209,6 +221,12 @@ server <- function(input, output, session) {
       do.call(rbind, kata_csv1)
       
     }
+  })
+  output$subdate <- renderText({
+    paste("Sample uploaded on", input$date1)
+  })
+  output$Analysisdate <- renderText({
+    paste("Analysis uploaded on", input$date2)
   })
   output$contents <- renderTable( 
     getData() 
