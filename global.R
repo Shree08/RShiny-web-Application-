@@ -10,7 +10,7 @@ library("dplyr")
 
 app_name <- "User Auth"
 #database <- "authorization.db"
-database <- "C:/Users/patel/Desktop/Database/user_auth.db"
+database <- "C:/Database/user_auth.db"
 
 support_contact <- "Admin@enterprise.com"
 
@@ -122,4 +122,4 @@ if (!file.exists(database))
 # initialize a connection for the session -- a server observer will 
 # automatically close the connection for us upon exit
 #db <- dbConnect(SQLite(), dbname = database)
-db <- dbConnect(SQLite(), dbname = "C:/Users/patel/Desktop/Database/user_auth")
+db <- dbConnect(SQLite(), dbname = "C:/Database/user_auth")
